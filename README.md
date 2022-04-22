@@ -1,2 +1,2 @@
-# GitHub Template
-GitHub template for all my future GitHub repos
+# Bacon API 🥓
+An API to use in demos to get various flavors of bacon. 🥓
