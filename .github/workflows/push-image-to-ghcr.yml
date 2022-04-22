@@ -5,7 +5,7 @@ on:
     - '.github/workflows/push-image-to-ghcr.yml'
     - 'src/**'
     branches:
-    - master
+    - main
 env:
   IMAGE_TAG: latest
 jobs:
