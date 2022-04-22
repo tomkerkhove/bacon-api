@@ -10,7 +10,7 @@ env:
   IMAGE_TAG: latest
 jobs:
   push:
-    name: Push GHCR
+    name: Push to GitHub Container Registry (GHCR)
     runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ghcr.io/tomkerkhove/bacon-api
