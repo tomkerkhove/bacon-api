@@ -32,11 +32,12 @@ builder.Services.AddSwaggerGen(options =>
 var app = builder.Build();
 
 // Configure Swagger
-app.UseSwagger();
+app.UseSwagger(o => o.RouteTemplate = "api/docs/{documentName}/swagger.json");
 app.UseSwaggerUI(o =>
 {
     o.ConfigObject.DocExpansion = DocExpansion.Full;
     o.DocumentTitle = "Bacon API";
+    o.RoutePrefix = "api/docs";
 });
 
 // Configure the HTTP request pipeline.
