@@ -1,0 +1,59 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Bacon API",
+    "description": "An API to use in demos to get various flavors of bacon.",
+    "termsOfService": "https://example.com/terms",
+    "contact": {
+      "name": "GitHub",
+      "url": "https://github.com/tomkerkhove/bacon-api"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/tomkerkhove/bacon-api/blob/main/LICENSE"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/bacon": {
+      "get": {
+        "tags": [
+          "Bacon"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}
