@@ -15,12 +15,6 @@ jobs:
       IMAGE_NAME: ghcr.io/tomkerkhove/bacon-api
     steps:
     - uses: actions/checkout@v2
-    - name: Docker Login
-      uses: docker/login-action@v1.8.0
-      with:
-        registry: ghcr.io
-        username: tomkerkhove
-        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
       run: docker build ./src/Bacon.API --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
   grpc:
@@ -30,11 +24,5 @@ jobs:
       IMAGE_NAME: ghcr.io/tomkerkhove/grpc-bacon
     steps:
     - uses: actions/checkout@v2
-    - name: Docker Login
-      uses: docker/login-action@v1.8.0
-      with:
-        registry: ghcr.io
-        username: tomkerkhove
-        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
       run: docker build ./src/Bacon.gRPC.Service --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
