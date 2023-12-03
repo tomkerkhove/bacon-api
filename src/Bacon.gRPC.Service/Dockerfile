@@ -9,9 +9,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Bacon.gRPC.Service/Bacon.gRPC.Service.csproj", "Bacon.gRPC.Service/"]
-RUN dotnet restore "Bacon.gRPC.Service/Bacon.gRPC.Service.csproj"
-COPY . .
-WORKDIR "/src/Bacon.gRPC.Service"
+COPY ["Bacon.Factory/Bacon.Factory.csproj", "Bacon.Factory/"]
 RUN dotnet build "Bacon.gRPC.Service.csproj" -c Release -o /app/build
 
 FROM build AS publish

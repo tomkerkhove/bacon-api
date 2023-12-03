@@ -6,9 +6,7 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Bacon.API.csproj", "."]
-RUN dotnet restore "./Bacon.API.csproj"
-COPY . .
-WORKDIR "/src/."
+COPY ["Bacon.Factory.csproj", "."]
 RUN dotnet build "Bacon.API.csproj" -c Release -o /app/build
 
 FROM build AS publish
