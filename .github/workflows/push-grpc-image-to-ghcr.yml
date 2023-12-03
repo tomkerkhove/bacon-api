@@ -6,6 +6,7 @@ on:
     - 'src/**'
     branches:
     - main
+  workflow_dispatch: 
 env:
   IMAGE_TAG: latest
 jobs:
