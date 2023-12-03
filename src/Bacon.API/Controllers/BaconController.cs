@@ -6,7 +6,7 @@ namespace Bacon.API.Controllers
     [Route("api/v1/bacon")]
     public class BaconController : ControllerBase
     {
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet(Name = "GetBacon")]
         public IEnumerable<string> Get()
         {
             return new List<string>
