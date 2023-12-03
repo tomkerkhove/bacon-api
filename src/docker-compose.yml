@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  bacon.api:
+    image: bacon-api
+    build:
+      context: .
+      dockerfile: Bacon.API/Dockerfile
+
+  bacon.grpc.service:
+    image: bacon-grpc-service
+    build:
+      context: .
+      dockerfile: Bacon.gRPC.Service/Dockerfile
+

@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build ./src/Bacon.API --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+      run: docker build ./src/ --file ./src/Bacon.API/Dockerfile --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
   grpc:
     name: gRPC Service
     runs-on: ubuntu-latest
@@ -26,4 +26,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build ./src/Bacon.gRPC.Service --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+      run: docker build ./src --file ./src/Bacon.gRPC.Service/Dockerfile --tag ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
