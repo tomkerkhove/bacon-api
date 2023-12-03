@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Bacon.gRPC.Service";
+
+package bacon;
+
+service Bacon {
+  rpc GetBacon (BaconRequest) returns (BaconResponse);
+}
+
+// The request message containing the user's name.
+message BaconRequest {
+  int32 amount = 1;
+}
+
+message BaconResponse {
+  repeated string flavors = 1;
+}
