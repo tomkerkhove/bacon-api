@@ -1,3 +1,4 @@
+using Bacon.Factory;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bacon.API.Controllers
@@ -6,17 +7,17 @@ namespace Bacon.API.Controllers
     [Route("api/v1/bacon")]
     public class BaconController : ControllerBase
     {
-        [HttpGet(Name = "GetBacon")]
-        public IEnumerable<string> Get()
+        readonly IBaconRepository baconRepository;
+        
+        public BaconController(IBaconRepository baconRepository)
         {
-            return new List<string>
-            {
-                "Honey Barbecue Flavored Bacon",
-                "Infamous Black Pepper Bacon",
-                "Italian Bacon",
-                "Raspberry Chipotle",
-                "Pumpkin Pie Spiced"
-            };
+            this.baconRepository = baconRepository;
+        }
+
+        [HttpGet(Name = "GetBacon")]
+        public async Task<List<string>> Get()
+        {
+            return await baconRepository.GetBaconFlavorsAsync();
         }
     }
 }

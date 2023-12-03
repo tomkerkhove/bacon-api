@@ -1,4 +1,4 @@
-name: Push Image to GitHub Container Registry
+name: Push REST API Image to GitHub Container Registry
 on:
   push:
     paths:
