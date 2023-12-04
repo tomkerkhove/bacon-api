@@ -17,6 +17,11 @@ namespace Bacon.API.Controllers
         [HttpGet(Name = "GetBacon")]
         public async Task<List<string>> Get()
         {
+            if (Environment.GetEnvironmentVariable("CHAOS_ENABLED") == Boolean.TrueString)
+            {
+                throw new ApplicationException("Woops, things are going wrong");
+            }
+            
             return await baconRepository.GetBaconFlavorsAsync();
         }
     }

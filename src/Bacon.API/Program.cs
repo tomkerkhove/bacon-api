@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddScoped<IBaconRepository, BaconRepository>();
 builder.Services.AddControllers();
+builder.Services.AddProblemDetails();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -43,8 +44,8 @@ app.UseSwaggerUI(o =>
 });
 
 // Configure the HTTP request pipeline.
+app.UseExceptionHandler();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
