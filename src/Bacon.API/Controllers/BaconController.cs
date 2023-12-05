@@ -1,5 +1,6 @@
 using Bacon.Factory;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace Bacon.API.Controllers
 {
@@ -17,7 +18,8 @@ namespace Bacon.API.Controllers
         [HttpGet(Name = "GetBacon")]
         public async Task<List<string>> Get()
         {
-            if (Environment.GetEnvironmentVariable("CHAOS_ENABLED") == Boolean.TrueString)
+            if (Environment.GetEnvironmentVariable("CHAOS_ENABLED") == Boolean.TrueString
+                || Request.Headers.ContainsKey("X-Chaos"))
             {
                 throw new ApplicationException("Woops, things are going wrong");
             }
